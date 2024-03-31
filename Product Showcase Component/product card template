@@ -53,14 +53,14 @@ const ProductCardFactory = () => {
       price = productPrice - (productPrice*discount);
       return(
         <div className={styles.pricefinal}>
-          <p>P {price}</p>
+          <p className={styles.pricetext}>P {price}</p>
           <p className={styles.discount}>-{discount*100}%</p>
         </div>
       );
     }
     return(
       <div>
-        <p>Php {price}</p>
+        <p className={styles.pricetext}>Php {price}</p>
       </div>
     );
   }
