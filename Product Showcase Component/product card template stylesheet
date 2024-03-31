@@ -1,0 +1,83 @@
+$eerie-black: #1b1b1eff;
+$mindaro: #d7ed7bff;
+$azure-web: #e6fafcff;
+$gamboge: #ef991fff;
+$vermilion: #e54138ff;
+$sgbus-green: #9ae95eff;
+$inter-font: "Inter";
+$poppins-font: "Poppins";
+$jet:#303036;
+$jet-2: #2C2C2F;
+$vermilion-2:#F8CBC9;
+
+body{
+    background-color: $eerie-black;
+    margin: 0;
+}
+p{
+    margin: 0;
+    font-family: $inter-font;
+    font-weight: bold;
+    color: $azure-web;
+}
+.productContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.65rem;
+    background-color: $eerie-black;
+    transition: all 0.5s;
+    border-radius: 1rem;
+}
+.productContainer:hover {
+    background-color: $mindaro
+}
+.productContainer:hover p{
+    color: $eerie-black;
+}
+
+.productImage{
+    width: 100%;
+    height: 7rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+.allCardsContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.star{
+    font-size: 0.65rem;
+    color: $gamboge;
+}
+.starRating{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.productstarrating{
+    font-size: 0.65rem;
+    font-weight: 500;
+}
+.productname{
+    font-size: 0.8rem;
+}
+.pricefinal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+.discount{
+    font-size: 0.65rem;
+    font-weight: 500;
+    padding: 0.05rem 0.5rem;
+    color: $vermilion;
+    background-color: $vermilion-2;
+    border-radius: 1rem;
+}
+.productBaseinfo{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
