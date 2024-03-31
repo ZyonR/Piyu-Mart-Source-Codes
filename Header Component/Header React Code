@@ -1,0 +1,76 @@
+import styles from './App.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBarsStaggered, faUser,faXmark,faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import img1 from "./img/1.jpg"
+import { useState } from 'react';
+
+function App() {
+  return (
+    <div className="App">
+      <PiyuMartHeader/>
+    </div>
+  );
+}
+const PiyuMartHeader = () => {
+
+  const [leftstate,slideLeft] = useState("100rem");
+
+  const PiyuMartAccountSidebarSection = () => {
+    const headerOptions = ["Home","Catalouge","About","Account","Support Us"];
+    const insertOptions = (option) =>{
+      return(<button className={styles.navbtns}>{option}</button>);
+    }
+    const accLogged = [{"Username":"User001","Email":"user001@gmail.com","ContactNo":"+63 9396113263","ProfileImg":img1}];
+    const evaluateUserImg = (img) => {
+      if(!img){
+        return (<FontAwesomeIcon className={styles.profileImgIcon} icon={faUser} />)
+      }
+      return(<img className={styles.profileImg} src={img} alt='UserProfileImage'/>)
+    }
+    const userCard = (User) =>{
+      return(
+        <div className={styles.userContainer}>
+          <div className={styles.user}>
+            <div className={styles.baseInfoContainer}>
+              <p className={styles.username}>{User["Username"]}</p>
+              <div className={styles.userInfoBase}>
+                <p className={styles.email}>{User["Email"]}</p>
+                <p className={styles.contactNo}>{User["ContactNo"]}</p>
+              </div>
+            </div>
+            {evaluateUserImg(User["ProfileImg"])}
+          </div>
+          <div className={styles.accbtns}>
+            <button className={styles.editBtn}>Edit</button>
+            <button className={styles.gotoaccBtn}>Go to Account</button>
+          </div>
+        </div>
+      )
+    }
+    return(
+      <div style={{left:leftstate}} className={styles.OptionsBar}>
+        <button onClick={()=>{slideLeft("100rem")}} className={styles.exitBtn}><FontAwesomeIcon icon={faXmark} /></button>
+        {accLogged.map(userCard)}
+        <div className={styles.searchsection}>
+          <input placeholder='Search' type='text' className={styles.searchbar}/>
+          <button className={styles.searchIconbtn}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+        </div>
+        <div className={styles.optionsContainer}>
+          {headerOptions.map(insertOptions)}
+        </div>
+      </div>
+    )
+  }
+  
+  return(
+    <div className={styles.PiyuMartHeader}>
+      <div className={styles.PiyuMartLogoAndNavBar}>
+        <p>Piyu<span>Mart</span></p>
+        <button onClick={()=>{slideLeft("0")}}><FontAwesomeIcon icon={faBarsStaggered} /></button>
+      </div>
+      <PiyuMartAccountSidebarSection/>
+    </div>
+  )
+}
+
+export default App;
